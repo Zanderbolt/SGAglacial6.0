@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PrintService } from './services/print.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   show:boolean = false;
   title = 'SGAglacial';
+
+  constructor(public printService: PrintService) { }
+
+  onPrintInvoice() {
+    const invoiceIds = ['101', '102'];
+    this.printService
+      .printDocument('invoice', invoiceIds);
+  }
 
   onToggleSidebar() {
     document.getElementById("sidebar").classList.toggle('active');

@@ -33,6 +33,7 @@ export class DescripcionVentaComponent implements OnInit {
 
   // MODELO DE ORDEN
   orden_servicio: OrdenServicio = {
+    // _id : '',
     cliente: this.clienteService.selectedCliente,
     vehiculo: this.vehiculoService.selectedVehiculo,
     detalles_servicio: [],

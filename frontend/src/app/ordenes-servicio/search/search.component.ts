@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdenServicioService } from '../../services/orden-servicio.service'
 import { OrdenServicio } from 'src/app/models/orden-servicio';
+import { PrintService } from '../../services/print.service';
+
 
 @Component({
   selector: 'app-search-orden-servicio',
@@ -10,7 +12,8 @@ import { OrdenServicio } from 'src/app/models/orden-servicio';
 export class SearchOrdenServicioComponent implements OnInit {
   busquedaSeleccionada : boolean[] = [true, false, false, false] //Nada, Nombre, Correo Placas
 
-  constructor(public ordenServicioService: OrdenServicioService) { }
+  constructor(public ordenServicioService: OrdenServicioService,
+              public printService: PrintService) { }
 
   ngOnInit() {
     this.ordenServicioService.buscarOrdenesServicio()
@@ -25,7 +28,13 @@ export class SearchOrdenServicioComponent implements OnInit {
     console.log(this.busquedaSeleccionada);
   }
 
-
-
+  onPrintInvoice(orden_servicio: OrdenServicio) {
+    this.ordenServicioService.buscarOrdenServicio(orden_servicio._id)
+    .subscribe(res => this.ordenServicioService.selectedOrden_servicio = res as OrdenServicio)
+    
+    const invoiceIds = [orden_servicio._id];
+    setTimeout(() => this.printService
+    .printDocument('invoice', invoiceIds), 1000)    
+  }
 
 }

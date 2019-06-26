@@ -3,7 +3,7 @@ import { Vehiculo } from '../models/vehiculo';
 import { DetallesServicio } from '../models/detalles-servicio';
 
 export class OrdenServicio {
-    //  _id: string;
+     _id?: string;
     cliente: Cliente;
     vehiculo: Vehiculo;
     detalles_servicio: DetallesServicio[];

@@ -26,4 +26,8 @@ export class OrdenServicioService {
   buscarOrdenesServicio() {
     return this.http.get(this.URL_API);
   }
+
+  buscarOrdenServicio(_id: string) {
+    return this.http.get(this.URL_API + `/${_id}`);
+  }
 }

@@ -64,7 +64,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let orden_servicio of this.ordenServicioService.ordenes_servicio">
-              <td> {{orden_servicio.cliente._id}}</td>
+              <td> {{orden_servicio._id}}</td>
               <td> {{orden_servicio.cliente.nombre_razon_social}}</td>
               <td> {{orden_servicio.vehiculo.placas}}</td>
               <td> {{orden_servicio.vehiculo.numero_serie}}</td>
@@ -72,7 +72,7 @@
               <td class="text-center">
                 <fa-icon [icon]="['fas', 'edit']" size="1x" [styles]="{'stroke': 'green', 'color': 'green'}">
                 </fa-icon> &nbsp;
-                <fa-icon [icon]="['fas', 'print']" size="1x" [styles]="{'stroke': 'green', 'color': 'blue'}">
+                <fa-icon (click)="onPrintInvoice(orden_servicio)" [icon]="['fas', 'print']" size="1x" [styles]="{'stroke': 'green', 'color': 'blue'}">
                 </fa-icon>
               </td>
             </tr>

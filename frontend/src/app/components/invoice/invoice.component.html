@@ -1,0 +1,175 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-right" style="color: blue"> <strong> Glacial Automotriz S.A. de C.V </strong> </h1>
+      <hr>
+    </div>
+
+    <div class="col-12">
+      <h2> <strong> Órden de Servicio Número:</strong> {{this.ordenServicioService.selectedOrden_servicio._id}} </h2>
+    </div>
+  </div>
+  <!-- <div class="invoice" *ngFor="let invoice of invoiceIds; let i = index">        -->
+  <br>
+
+  <!-- DATOS CLIENTE -->
+  <h2>
+    <fa-icon [icon]="['fas', 'user-tag']" size="2x" [styles]="{'stroke': 'black', 'color': 'blue'}"></fa-icon>
+    <strong> &nbsp; Datos del Cliente </strong>
+  </h2>
+  <hr>
+  <div class="row">
+    <div class="col-12">
+      <h2> <strong> Nombre o Razón Social: </strong>
+        {{this.ordenServicioService.selectedOrden_servicio.cliente.nombre_razon_social}} </h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <h2> <strong> Domicilio: </strong>
+        {{this.ordenServicioService.selectedOrden_servicio.cliente.domicilio}} </h2>
+    </div>
+    <div class="col-6">
+      <h2> <strong> Colonia: </strong>
+        {{this.ordenServicioService.selectedOrden_servicio.cliente.colonia}} </h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <h2> <strong>Celular: </strong>
+        {{this.ordenServicioService.selectedOrden_servicio.cliente.celular}} </h2>
+    </div>
+    <div class="col-6">
+      <h2> <strong> Ciudad: </strong>
+        {{this.ordenServicioService.selectedOrden_servicio.cliente.ciudad}} </h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <h2> <strong> Código Postal: </strong>
+        {{this.ordenServicioService.selectedOrden_servicio.cliente.cp}} </h2>
+    </div>
+    <div class="col-6">
+      <h2> <strong> RFC: </strong>
+        {{this.ordenServicioService.selectedOrden_servicio.cliente.RFC}} </h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <h2> <strong>Teléfono Oficina: </strong>
+        {{this.ordenServicioService.selectedOrden_servicio.cliente.telefono_oficina}} </h2>
+    </div>
+  </div>
+  <br>
+
+  <!-- DATOS VEHICULO -->
+  <h2>
+    <fa-icon [icon]="['fas', 'car']" size="2x" [styles]="{'stroke': 'black', 'color': 'red'}"></fa-icon>
+    <strong> &nbsp; Datos del Vehiculo </strong>
+  </h2>
+  <hr>
+  <div class="row">
+    <div class="col-12">
+      <h2> <strong> Usuario: </strong>
+        {{this.ordenServicioService.selectedOrden_servicio.vehiculo.usuario}} </h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2> <strong> Responsable: </strong>
+        {{this.ordenServicioService.selectedOrden_servicio.vehiculo.responsable}} </h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <h2> <strong> Marca: </strong>
+        {{this.ordenServicioService.selectedOrden_servicio.vehiculo.marca}} </h2>
+    </div>
+    <div class="col-4">
+      <h2> <strong> Modelo: </strong>
+        {{this.ordenServicioService.selectedOrden_servicio.vehiculo.modelo}} </h2>
+    </div>
+    <div class="col-4">
+      <h2> <strong> Año: </strong>
+        {{this.ordenServicioService.selectedOrden_servicio.vehiculo.ano}} </h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <h2> <strong> Color: </strong>
+        {{this.ordenServicioService.selectedOrden_servicio.vehiculo.color}} </h2>
+    </div>
+    <div class="col-4">
+      <h2> <strong> Placas: </strong>
+        {{this.ordenServicioService.selectedOrden_servicio.vehiculo.placas}} </h2>
+    </div>
+    <div class="col-4">
+      <h2> <strong> Kilometraje: </strong>
+        {{this.ordenServicioService.selectedOrden_servicio.vehiculo.kms}} </h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2> <strong> Número de serie: </strong>
+        {{this.ordenServicioService.selectedOrden_servicio.vehiculo.numero_serie}} </h2>
+    </div>
+  </div>
+  <br>
+
+  <!-- DATOS VENTA -->
+  <h2>
+    <fa-icon [icon]="['fas', 'coins']" size="2x" [styles]="{'stroke': 'black', 'color': 'yellow'}"></fa-icon>
+    <strong> &nbsp; Datos de la Venta </strong>
+  </h2>
+  <hr>
+  <div class="row">
+    <div class="col-12">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let servicio of this.ordenServicioService.selectedOrden_servicio.detalles_servicio; let i = index">
+            <td>{{servicio.cantidad}}</td>
+            <td>{{servicio.descripcion}}</td>
+            <td>${{servicio.precio}}</td>
+            <td>${{servicio.total}}</td>
+          </tr>
+          <br><br>
+          <tr>
+            <td></td>
+            <td></td>
+            <td> <strong> Subtotal: </strong> </td>
+            <td>  ${{this.ordenServicioService.selectedOrden_servicio.subtotal}} </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td> <strong> Descuento: </strong> </td>
+            <td> ${{this.ordenServicioService.selectedOrden_servicio.descuento}} </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td> <strong> IVA: </strong> </td>
+            <td> ${{this.ordenServicioService.selectedOrden_servicio.IVA}} </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td> <strong> Total: </strong> </td>
+            <td> ${{this.ordenServicioService.selectedOrden_servicio.total}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- Amount: {{ (invoiceDetails[i] | async)?.amount }} -->
+  <!-- </div> -->
+</div>

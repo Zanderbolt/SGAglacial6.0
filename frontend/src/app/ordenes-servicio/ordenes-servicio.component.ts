@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OrdenServicio } from '../models/orden-servicio';
+import { OrdenServicioService } from '../services/orden-servicio.service';
 
 @Component({
   selector: 'app-ordenes-servicio',
@@ -10,7 +12,7 @@ export class OrdenesServicioComponent implements OnInit {
   mostrarAgregarOrden: boolean = false;
   mostrarBuscarOrdenes: boolean = false;
 
-  constructor() { }
+  constructor(public ordenServicioService: OrdenServicioService) { }
 
   ngOnInit() {
   }
@@ -21,6 +23,8 @@ export class OrdenesServicioComponent implements OnInit {
   }
 
   public toggleBuscarOrdenes() {
+    this.ordenServicioService.buscarOrdenesServicio()
+    .subscribe(res => this.ordenServicioService.ordenes_servicio = res as OrdenServicio[])
     this.mostrarAgregarOrden = false;
     this.mostrarBuscarOrdenes = true;
   }

@@ -7,6 +7,11 @@ orden_servicioController.getOrdenesServicio = async (req, res) => {
     res.json(orden_servicio);
 };
 
+// SELECT ONE BY ID
+orden_servicioController.getOrdenServicio = async (req, res) => {
+    const orden_servicio = await Orden_servicio.findById(req.params.id)
+    res.json(orden_servicio);
+};
 // CREATE ORDEN
 orden_servicioController.createOrden_servicio = async (req, res) => {
     const orden_servicio = new Orden_servicio(req.body)
