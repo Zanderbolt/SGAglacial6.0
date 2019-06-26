@@ -17,10 +17,13 @@ export class OrdenServicioService {
 
   constructor(public http: HttpClient) {
     this.selectedOrden_servicio = new OrdenServicio;
-
    }
 
    guardarOrdenServicio(ordenServicio: OrdenServicio) {
     return this.http.post(this.URL_API, ordenServicio);
+  }
+
+  buscarOrdenesServicio() {
+    return this.http.get(this.URL_API);
   }
 }

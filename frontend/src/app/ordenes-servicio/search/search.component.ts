@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OrdenServicioService } from '../../services/orden-servicio.service'
+import { OrdenServicio } from 'src/app/models/orden-servicio';
 
 @Component({
   selector: 'app-search-orden-servicio',
@@ -8,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 export class SearchOrdenServicioComponent implements OnInit {
   busquedaSeleccionada : boolean[] = [true, false, false, false] //Nada, Nombre, Correo Placas
 
-  constructor() { }
+  constructor(public ordenServicioService: OrdenServicioService) { }
 
   ngOnInit() {
+    this.ordenServicioService.buscarOrdenesServicio()
+    .subscribe(res => this.ordenServicioService.ordenes_servicio = res as OrdenServicio[])    
   }
 
   cambiarBusquedaSeleccionada(opcion: number) {    
@@ -20,6 +24,8 @@ export class SearchOrdenServicioComponent implements OnInit {
     }
     console.log(this.busquedaSeleccionada);
   }
+
+
 
 
 }

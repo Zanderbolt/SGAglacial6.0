@@ -1,117 +1,90 @@
 <div class="container-fluid">
-    <div class="card card-form background-form">
-      <div class="card-title">
-        <h3 class="title-text"> <strong> Buscar Órdenes de Servicio </strong> </h3>
-      </div>
-      <div class="card-body form-text">
-        <form>
-  
-          <!-- Búsqueda Por -->
-          <div class="row">
-  
-            <div class="col-5">
-              <div class="form-group">
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <label class="input-group-text form-text" for="inputGroupSelect01">
-                      <fa-icon [icon]="['fas', 'search']" size="1x"></fa-icon>
-                      <strong> &nbsp; Búsqueda Por </strong>
-                    </label>
-                  </div>
-                  &nbsp;
-                  <span class="form-text input-group-text">
-                    <fa-icon *ngIf="busquedaSeleccionada[0]" [icon]="['fas', 'list']" size="1x" [styles]="{'color': 'black'}"></fa-icon>
-                    <fa-icon *ngIf="busquedaSeleccionada[1]" [icon]="['fas', 'user']" size="1x" [styles]="{'color': 'blue'}"></fa-icon>
-                    <fa-icon *ngIf="busquedaSeleccionada[2]" [icon]="['fas', 'envelope']" size="1x" [styles]="{'color': 'orange'}"></fa-icon>
-                    <fa-icon *ngIf="busquedaSeleccionada[3]" [icon]="['fas', 'car']" size="1x" [styles]="{'color': 'green'}"></fa-icon>
-                  </span>               
-                  <select class="custom-select form-text" (change)="cambiarBusquedaSeleccionada($event.target.value)" id="inputGroupSelect01">
-                    <option value="0" class="form-text" selected>Seleccionar</option>
-                    <option value="1">Nombre o Razón Social</option>
-                    <option value="2">Correo Electrónico</option>
-                    <option value="3">Placas</option>
-                  </select>
+  <div class="card card-form background-form">
+    <div class="card-title">
+      <h3 class="title-text"> <strong> Buscar Órdenes de Servicio </strong> </h3>
+    </div>
+    <div class="card-body form-text">
+      <form>
+
+        <!-- Búsqueda Por -->
+        <div class="row">
+
+          <div class="col-5">
+            <div class="form-group">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text form-text" for="inputGroupSelect01">
+                    <fa-icon [icon]="['fas', 'search']" size="1x"></fa-icon>
+                    <strong> &nbsp; Búsqueda Por </strong>
+                  </label>
                 </div>
+                &nbsp;
+                <span class="form-text input-group-text">
+                  <fa-icon *ngIf="busquedaSeleccionada[0]" [icon]="['fas', 'list']" size="1x"
+                    [styles]="{'color': 'black'}"></fa-icon>
+                  <fa-icon *ngIf="busquedaSeleccionada[1]" [icon]="['fas', 'user']" size="1x"
+                    [styles]="{'color': 'blue'}"></fa-icon>
+                  <fa-icon *ngIf="busquedaSeleccionada[2]" [icon]="['fas', 'envelope']" size="1x"
+                    [styles]="{'color': 'orange'}"></fa-icon>
+                  <fa-icon *ngIf="busquedaSeleccionada[3]" [icon]="['fas', 'car']" size="1x"
+                    [styles]="{'color': 'green'}"></fa-icon>
+                </span>
+                <select class="custom-select form-text" (change)="cambiarBusquedaSeleccionada($event.target.value)"
+                  id="inputGroupSelect01">
+                  <option value="0" class="form-text" selected>Seleccionar</option>
+                  <option value="1">Nombre o Razón Social</option>
+                  <option value="2">Correo Electrónico</option>
+                  <option value="3">Placas</option>
+                </select>
               </div>
-            </div>
-            <div class="col-6">
-              <input type="text" class="form-text form-control" placeholder="Ingrese la información a buscar...">
-            </div>
-            <div class="col-1">
-  
             </div>
           </div>
-          <!-- <div class="form-group">
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <label class="input-group-text form-text" for="inputGroupSelect01">
-                  <fa-icon [icon]="['fas', 'search']" size="1x"></fa-icon>
-                  <strong> &nbsp; Búsqueda Por: </strong>
-                </label>
-              </div>
-              <select class="custom-select form-text" id="inputGroupSelect01">
-                <option class="form-text" selected>Seleccionar</option>
-                <option value="1">Nombre o Razón Social</option>
-                <option value="2">Correo Electrónico</option>
-                <option value="3">Placas</option>
-              </select>
-              <div class="input-group-prepend">
-                <span class="form-text input-group-text">
-                  <fa-icon [icon]="['fas', 'phone']" size="1x"></fa-icon>
-                </span>
-                <input type="text" class="form-text form-control" aria-label="Amount (to the nearest dollar)">
-  
-              </div>
-            </div>
-          </div> -->
-  
-          <!-- Tabla de Datos -->
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellido Paterno</th>
-                <th scope="col">Apellido Materno</th>
-                <th scope="col">Teléfono</th>
-                <th scope="col">Placas</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>mdo</td>
-                <td>312-459-7810</td>
-                <td>F5978POL</td>
-  
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-                <td>312-122-7114</td>
-                <td>AS59781</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>twitter</td>
-                <td>312-998-3250</td>
-                <td>PL8798A</td>
-              </tr>
-            </tbody>
-          </table>
-  
-  
-  
-  
-  
-  
-        </form>
-      </div>
+          <div class="col-6">
+            <input type="text" class="form-text form-control" placeholder="Ingrese la información a buscar...">
+          </div>
+          <div class="col-1">
+
+          </div>
+        </div>
+
+        <!-- Tabla de Datos -->
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#ID</th>
+              <th scope="col">Cliente</th>
+              <th scope="col">Placas</th>
+              <th scope="col">No. Serie</th>
+              <th scope="col">Total</th>
+              <th class="text-center">
+                <fa-icon [icon]="['fas', 'cog']" size="1x" [styles]="{'stroke': 'red', 'color': 'black'}"></fa-icon>
+              </th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let orden_servicio of this.ordenServicioService.ordenes_servicio">
+              <td> {{orden_servicio.cliente._id}}</td>
+              <td> {{orden_servicio.cliente.nombre_razon_social}}</td>
+              <td> {{orden_servicio.vehiculo.placas}}</td>
+              <td> {{orden_servicio.vehiculo.numero_serie}}</td>
+              <td> ${{orden_servicio.total}}</td>
+              <td class="text-center">
+                <fa-icon [icon]="['fas', 'edit']" size="1x" [styles]="{'stroke': 'green', 'color': 'green'}">
+                </fa-icon> &nbsp;
+                <fa-icon [icon]="['fas', 'print']" size="1x" [styles]="{'stroke': 'green', 'color': 'blue'}">
+                </fa-icon>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+
+
+
+
+      </form>
     </div>
   </div>
+</div>
