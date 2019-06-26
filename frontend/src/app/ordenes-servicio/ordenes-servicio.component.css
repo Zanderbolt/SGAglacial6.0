@@ -1,0 +1,27 @@
+.card-title, h4, h5 {
+    text-align: center;
+}
+
+/* .card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+  } */
+
+.card-body, h3 {
+    font-size: 20px;
+    font-family: 'Cairo', sans-serif;
+}
+
+.card-form:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+  }
+
+
+.title-text {
+    font-size: 35px;
+}
+
+.form-text {
+    font-size: 25px;
+}

@@ -1,0 +1,191 @@
+<div class="container-fluid">
+  <div class="card card-form background-form">
+    <div class="card-title">
+      <h3 class="title-text"> <strong> Agregar Clientes </strong> </h3>
+    </div>
+    <div class="card-body form-text">
+      <form #clienteForm="ngForm" (ngSubmit)="addCliente(clienteForm)">
+
+        <!-- Nombre o Razón Social -->
+        <div class="form-group">
+          <label> <strong> Nombre o Razón Social </strong></label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="form-text input-group-text">
+                <fa-icon [icon]="['fas', 'users']" size="1x"></fa-icon>
+              </span>
+            </div>
+            <input type="text" name="nombre_razon_social" #nombre_razon_social="ngModel"
+              [(ngModel)]="cliente.nombre_razon_social" class="form-text form-control">
+          </div>
+        </div>
+
+        <!-- Domicilio Ciudad Colonia y C.P -->
+        <div class="row">
+          <div class="col-6">
+            <!-- Domicilio -->
+            <div class="form-group">
+              <label><strong> Domicilio </strong></label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="form-text input-group-text">
+                    <fa-icon [icon]="['fas', 'road']" size="1x"></fa-icon>
+                  </span>
+                </div>
+                <input type="text" name="domicilio" #domicilio="ngModel"
+                  [(ngModel)]="cliente.domicilio" class="form-text form-control">
+              </div>
+            </div>
+          </div>
+          <!-- Ciudad -->
+          <div class="col-2">
+            <div class="form-group">
+              <label><strong> Ciudad </strong></label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="form-text input-group-text">
+                    <fa-icon [icon]="['fas', 'city']" size="1x"></fa-icon>
+                  </span>
+                </div>
+                <input type="text" name="ciudad" #ciudad="ngModel"
+                  [(ngModel)]="cliente.ciudad" class="form-text form-control">
+              </div>
+            </div>
+          </div>
+          <!-- Colonia -->
+          <div class="col-2">
+            <div class="form-group">
+              <label><strong> Colonia </strong></label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="form-text input-group-text">
+                    <fa-icon [icon]="['fas', 'city']" size="1x"></fa-icon>
+                  </span>
+                </div>
+                <input type="text" name="colonia" #colonia="ngModel"
+                  [(ngModel)]="cliente.colonia" class="form-text form-control">
+              </div>
+            </div>
+          </div>
+          <!-- C.P -->
+          <div class="col-2">
+            <div class="form-group">
+              <label><strong> C.P </strong></label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="form-text input-group-text">
+                    <fa-icon [icon]="['fas', 'sort-numeric-up']" size="1x"></fa-icon>
+                  </span>
+                </div>
+                <input type="text" name="cp" #cp="ngModel"
+                  [(ngModel)]="cliente.cp" class="form-text form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nombre o de Contacto -->
+        <div class="form-group">
+          <label> <strong> Nombre Contacto </strong></label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="form-text input-group-text">
+                <fa-icon [icon]="['fas', 'user-tag']" size="1x"></fa-icon>
+              </span>
+            </div>
+            <input type="text" name="nombre_contacto" #nombre_contacto="ngModel"
+                  [(ngModel)]="cliente.nombre_contacto" class="form-text form-control">
+          </div>
+        </div>
+
+        <!-- Correo Electronico y Teléfonp  -->
+        <div class="row">
+          <div class="col-6">
+            <!-- Correo Electrónico -->
+            <div class="form-group">
+              <label> <strong> Correo electrónico </strong></label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="form-text input-group-text">
+                    <fa-icon [icon]="['fas', 'envelope']" size="1x"></fa-icon>
+                  </span>
+                </div>
+                <input type="text" name="correo_electronico" #correo_electronico="ngModel"
+                  [(ngModel)]="cliente.correo_electronico" class="form-text form-control">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <!--Teléfono -->
+            <div class="form-group">
+              <label> <strong> Celular </strong> </label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="form-text input-group-text">
+                    <fa-icon [icon]="['fas', 'phone']" size="1x"></fa-icon>
+                  </span>
+                </div>
+                <input type="text" name="celular" #celular="ngModel"
+                  [(ngModel)]="cliente.celular" class="form-text form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RFC y Teléfono de Oficina  -->
+        <div class="row">
+          <div class="col-6">
+            <!-- RFC -->
+            <div class="form-group">
+              <label> <strong> RFC </strong></label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="form-text input-group-text">
+                    <fa-icon [icon]="['fas', 'font']" size="1x"></fa-icon>
+                  </span>
+                </div>
+                <input type="text" name="RFC" #RFC="ngModel"
+                  [(ngModel)]="cliente.RFC" class="form-text form-control">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <!--Teléfono de Oficina -->
+            <div class="form-group">
+              <label> <strong> Tel. Oficina </strong> </label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="form-text input-group-text">
+                    <fa-icon [icon]="['fas', 'tty']" size="1x"></fa-icon>
+                  </span>
+                </div>
+                <input type="text" name="telefono_oficina" #telefono_oficina="ngModel"
+                  [(ngModel)]="cliente.telefono_oficina" class="form-text form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <!-- Botón Guardar y Limpiar -->
+        <div class="form-group row">
+          <div class="col-8"></div>          
+          <div class="col-2">
+            <button type="submit" class="btn btn-success btn-lg btn-block">
+              <fa-icon [icon]="['fas', 'save']" size="1x"></fa-icon> Guardar
+            </button>
+          </div>
+          <div class="col-2">
+            <button type="reset" (click)="expression" class="btn btn-secondary btn-lg btn-block">
+              <fa-icon [icon]="['fas', 'brush']" size="1x"></fa-icon> Limpiar
+            </button>
+          </div>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+</div>

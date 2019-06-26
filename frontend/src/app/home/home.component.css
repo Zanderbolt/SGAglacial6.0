@@ -1,0 +1,13 @@
+h1 {
+    font-family: 'Cairo', sans-serif;
+}
+
+.background-image {
+    background-image: url("../../assets/img/logo_glacial.jpg");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    height: 200px;
+    width: 200px;
+    background-size: contain;
+    /* background-color: red; */
+}

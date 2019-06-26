@@ -1,0 +1,72 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<!-- FAS SIZE -->
+<!-- <fa-icon [icon]="['fas', 'coffee']" size="6x"></fa-icon> -->
+
+
+<!-- Loading Icon -->
+<!-- <fa-icon [icon]="['fas', 'spinner']" size="6x" [spin]="true"></fa-icon>
+  <fa-icon [icon]="['fas', 'spinner']" [pulse]="true"></fa-icon> -->
+
+
+<!-- Position and Color -->
+<!-- <fa-icon [icon]="['fas', 'coffee']" pull="left"></fa-icon>
+  <fa-icon [icon]="['fas', 'coffee']" pull="right"></fa-icon>
+  <fa-icon [icon]="['fas', 'coffee']" [styles]="{'stroke': 'red', 'color': 'red'}"></fa-icon> -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1">
+      <!-- SideBar -->
+      <div id="sidebar">
+        <!-- Toggle Button -->
+        <!-- <div class="toggle-btn" (click)="onToggleSidebar()"> -->
+        <!-- <span></span>
+          <span></span>
+          <span></span>
+          <fa-icon *ngIf="show" [icon]="['fas', 'arrow-left']" size="1x"></fa-icon>
+          <fa-icon *ngIf="!show" [icon]="['fas', 'arrow-right']" size="1x"></fa-icon> -->
+        <!-- <i *ngIf="show" class="fas fa-arrow-left"></i>
+          <i *ngIf="!show" class="fas fa-arrow-right"></i> -->
+        <!-- </div> -->
+        <!-- End Toggle Button -->
+
+        <!-- List of Items -->
+        <ul class="text-center">
+          <!-- Item 1 -->
+          <a routerLink="/clientes">
+            <li id="clientes" class="clientes">
+              <fa-icon [icon]="['fas', 'users']" size="1x"></fa-icon>
+              <br>
+              Clientes
+            </li>
+          </a>
+          <!-- Fin Item 1 -->
+          <!-- Item 2 -->
+          <a routerLink="/ordenes-servicio">
+            <li class="ordenes-servicio">
+              <fa-icon [icon]="['fas', 'clipboard-list']" size="1x"></fa-icon>
+              <br>
+              Órdenes de Servicio
+            </li>
+          </a>
+          <!-- Fin item 2 -->
+        </ul>
+        <!-- End of List -->
+      </div>
+      <!-- Fin SideBar -->
+    </div>
+
+  
+
+    <!-- Working Area -->
+    <div id="working-area" class="col-11">
+      <app-home></app-home> <br>
+      <router-outlet></router-outlet>
+    </div>
+    <!-- End of Working Area -->
+  </div>
+</div>
+
+ <br>
+

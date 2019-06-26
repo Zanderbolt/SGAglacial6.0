@@ -1,0 +1,46 @@
+<br>
+<div class="container-fluid">
+  <div class="row text-center">
+    <div class="col-3"></div>
+    <div class="col-3">
+      <div class="card border-0">
+        <div class="card-title">
+          <h3> <strong> Agregar Clientes </strong> </h3>
+          <button (click)="toggleAgregarCliente()" type="button" class="btn btn-primary">
+            <fa-icon [icon]="['fas', 'user-plus']" size="6x"></fa-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="card border-0">
+        <div class="card-title">
+          <h3> <strong>Buscar Clientes</strong> </h3>
+          <button (click)="toggleBuscarClientes()" type="button" class="btn btn-info">
+            <fa-icon [icon]="['fas', 'search']" size="6x"></fa-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-3"></div>
+
+  </div>
+</div>
+
+<br>
+<br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col" *ngIf="mostrarAgregarCliente">
+      <app-add></app-add>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">      
+          <div class="col" *ngIf="mostrarBuscarClientes">
+        <app-search></app-search>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,96 @@
+<div class="container-fluid">
+  <div class="card card-form background-form">
+    <div class="card-title">
+      <h3 class="title-text"> <strong> Buscar Clientes </strong> </h3>
+    </div>
+    <div class="card-body form-text">
+      <form>
+
+        <!-- Búsqueda Por -->
+        <div class="row">
+
+          <div class="col-5">
+            <div class="form-group">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text form-text" for="inputGroupSelect01">
+                    <fa-icon [icon]="['fas', 'search']" size="1x"></fa-icon>
+                    <strong> &nbsp; Búsqueda Por </strong>
+                  </label>
+                </div>
+                &nbsp;
+                <span class="form-text input-group-text">
+                  <fa-icon *ngIf="busquedaSeleccionada[0]" [icon]="['fas', 'list']" size="1x" [styles]="{'color': 'black'}"></fa-icon>
+                  <fa-icon *ngIf="busquedaSeleccionada[1]" [icon]="['fas', 'user']" size="1x" [styles]="{'color': 'blue'}"></fa-icon>
+                  <fa-icon *ngIf="busquedaSeleccionada[2]" [icon]="['fas', 'envelope']" size="1x" [styles]="{'color': 'orange'}"></fa-icon>
+                  <fa-icon *ngIf="busquedaSeleccionada[3]" [icon]="['fas', 'car']" size="1x" [styles]="{'color': 'green'}"></fa-icon>
+                </span>               
+                <select class="custom-select form-text" (change)="cambiarBusquedaSeleccionada($event.target.value)" id="inputGroupSelect01">
+                  <option value="0" class="form-text" selected>Seleccionar</option>
+                  <option value="1">Nombre o Razón Social</option>
+                  <option value="2">Celular</option>
+                  <option value="3">RFC</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <input type="text" class="form-text form-control" placeholder="Ingrese la información a buscar...">
+          </div>
+          <div class="col-1">
+
+          </div>
+        </div>
+        <!-- <div class="form-group">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text form-text" for="inputGroupSelect01">
+                <fa-icon [icon]="['fas', 'search']" size="1x"></fa-icon>
+                <strong> &nbsp; Búsqueda Por: </strong>
+              </label>
+            </div>
+            <select class="custom-select form-text" id="inputGroupSelect01">
+              <option class="form-text" selected>Seleccionar</option>
+              <option value="1">Nombre o Razón Social</option>
+              <option value="2">Correo Electrónico</option>
+              <option value="3">Placas</option>
+            </select>
+            <div class="input-group-prepend">
+              <span class="form-text input-group-text">
+                <fa-icon [icon]="['fas', 'phone']" size="1x"></fa-icon>
+              </span>
+              <input type="text" class="form-text form-control" aria-label="Amount (to the nearest dollar)">
+
+            </div>
+          </div>
+        </div> -->
+
+        <!-- Tabla de Datos -->
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Nombre o Razón Social</th>
+              <th scope="col">Nombre de Contato</th>
+              <th scope="col">Celular</th>            
+              <th scope="col">Correo</th>              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cliente of this.clientesService.clientes">
+              <td> {{cliente.nombre_razon_social}} </td>
+              <td> {{cliente.nombre_contacto}} </td>
+              <td> {{cliente.celular}} </td>
+              <td> {{cliente.correo_electronico}} </td>
+            </tr>            
+          </tbody>
+        </table>
+
+
+
+
+
+
+      </form>
+    </div>
+  </div>
+</div>

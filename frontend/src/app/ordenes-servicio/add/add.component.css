@@ -1,0 +1,50 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+hr {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #EEEEEE -moz-use-text-color #FFFFFF;
+    border-style: solid none;
+    border-width: 1px 0;
+    margin: 18px 0;
+    opacity: .5;
+  }
+
+.subtitle-text-clientes {    
+    font-size: 35px;
+    color: #074968;
+}
+
+.subtitle-text-vehiculos {    
+  font-size: 35px;
+  color: #EC0A0A;
+}
+
+.subtitle-text-venta {    
+  font-size: 35px;
+  color: #2F9F02;
+}
+
+.card-body, h3{
+  font-size: 20px;
+  font-family: 'Cairo', sans-serif;
+}
+
+.background-form {
+  background-color: #F6FFDE;
+}
+
+.background-form-venta {
+  background-color: #D2FCD8;
+}

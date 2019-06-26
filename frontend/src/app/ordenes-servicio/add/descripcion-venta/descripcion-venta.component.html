@@ -1,0 +1,279 @@
+<br>
+<div class="container-fluid">
+  <div class="card card-form background-form-venta">
+    <div class="card-body form-text">
+      <!-- Datos de la Venta -->
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <fa-icon [icon]="['fas', 'coins']" size="2x" [styles]="{'stroke': 'red', 'color': '#2F9F02'}"></fa-icon>
+            <label> <strong class="subtitle-text-venta"> &nbsp; Datos de la Venta </strong></label>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <!-- Descripción del Servicio -->
+      <div class="row">
+        <div class="col">
+          <h1 class="text-center"> <strong> Descripción del Servicio </strong></h1>
+        </div>
+      </div>
+      <br>
+
+      <!-- Inputs para guardar información -->
+      <div class="row">
+        <div class="col-2">
+          <div class="form-group">
+            <!-- Cantidad -->
+            <label> <strong> Cantidad </strong></label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="form-text input-group-text">
+                  <fa-icon [icon]="['fas', 'sort-numeric-up']" [styles]="{'stroke': 'red', 'color': 'black'}" size="1x">
+                  </fa-icon>
+                </span>
+              </div>
+              <input type="number" name="serviciosAgregados.cantidad" [(ngModel)]="serviciosAgregados.cantidad"
+                class="form-text form-control">
+            </div>
+          </div>
+        </div>
+        <!-- Descripción -->
+        <div class="col-6">
+          <div class="form-group">
+            <label> <strong> Descripción </strong></label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="form-text input-group-text">
+                  <fa-icon [icon]="['fas', 'tag']" size="1x" [styles]="{'stroke': 'red', 'color': 'blue'}"></fa-icon>
+                </span>
+              </div>
+              <input type="text" name="serviciosAgregados.descripcion" [(ngModel)]="serviciosAgregados.descripcion"
+                class="form-text form-control">
+            </div>
+          </div>
+        </div>
+        <!-- Precio -->
+        <div class="col-4">
+          <div class="form-group">
+            <label> <strong> Precio </strong></label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="form-text input-group-text">
+                  <fa-icon [icon]="['fas', 'dollar-sign']" size="1x" [styles]="{'stroke': 'red', 'color': 'green'}">
+                  </fa-icon>
+                </span>
+              </div>
+              <input name="serviciosAgregados.precio" [(ngModel)]="serviciosAgregados.precio" type="number"
+                class="form-text form-control">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-9"></div>
+        <div class="col-3">
+          <button class="btn btn-info btn-lg btn-block" (click)="agregarNuevoServicio()">
+            <fa-icon [icon]="['fas', 'plus-square']" size="1x"></fa-icon> Agregar
+          </button>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-12">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Total</th>
+                <th>
+                  <fa-icon [icon]="['fas', 'cog']" size="1x" [styles]="{'stroke': 'red', 'color': 'white'}"></fa-icon>
+                </th>
+
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let servicio of agregados; let i = index">
+                <td>{{servicio.cantidad}}</td>
+                <td>{{servicio.descripcion}}</td>
+                <td>${{servicio.precio}}</td>
+                <td>${{servicio.total}}</td>
+                <td>
+                  <fa-icon (click)="eliminarNuevoServicio(i)" [icon]="['fas', 'trash']" size="1x"
+                    [styles]="{'stroke': 'red', 'color': 'red'}">
+                  </fa-icon>
+                </td>
+              </tr>
+              <br><br>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td> <strong> Subtotal: </strong> </td>
+                <td> <strong> ${{orden_servicio.subtotal}} </strong> </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td> <strong> Descuento: </strong> </td>
+                <td *ngIf="orden_servicio.con_descuento"> <strong style="color: green"> -${{orden_servicio.descuento}}
+                  </strong> </td>
+                <td *ngIf="!orden_servicio.con_descuento"> <strong style="color: green"> $0 </strong> </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td> <strong> IVA: </strong> </td>
+                <td *ngIf="orden_servicio.con_iva"> <strong style="color: blue"> ${{orden_servicio.IVA}}</strong> </td>
+                <td *ngIf="!orden_servicio.con_iva"> <strong style="color: blue"> SIN IVA </strong> </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td> <strong> Total: </strong> </td>
+                <td> <strong> ${{orden_servicio.total}} </strong> </td>
+              </tr>
+              <tr *ngIf="orden_servicio.con_garantia">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td> <strong> GARANTIA </strong> </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+
+      <br><br>
+      <hr>
+      <!-- Toogle Garantía -->
+      <div class="row">
+        <div class="col-2 text-right">
+          <label> <strong> ¿Fue Garantía? &nbsp;</strong></label>
+        </div>
+        <div class="col-4">
+          <label class="switch">
+            <input type="checkbox" [(ngModel)]="orden_servicio.con_garantia" data-md-icheck
+              (change)="toggleGarantia($event)">
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+
+      <br>
+
+      <!-- Toogle IVA -->
+      <div class="row">
+        <div class="col-2 text-right">
+          <label> <strong> IVA &nbsp;</strong></label>
+        </div>
+
+        <div class="col-8">
+          <label class="switch">
+            <input type="checkbox" [(ngModel)]="orden_servicio.con_iva" data-md-icheck (change)="toggleIVA($event)">
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+      <br>
+
+      <!-- Toogle Descuento -->
+      <div class="row">
+        <div class="col-2 text-right">
+          <label> <strong> Descuento &nbsp;</strong></label>
+        </div>
+        <div class="col-8">
+          <label class="switch">
+            <input type="checkbox" [(ngModel)]="orden_servicio.con_descuento" data-md-icheck
+              (change)="toggleDescuento($event)">
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+      <br>
+
+      <!-- Forma de Pago -->
+      <div class="row">
+        <div class="col-2 text-right">
+          <label> <strong> Forma de Pago &nbsp;</strong></label>
+        </div>
+        <div class="col-3">
+          <div class="form-group">
+            <div class="input-group mb-3">
+              &nbsp;
+              <span class="form-text input-group-text">
+                <fa-icon *ngIf="busquedaSeleccionada[0]" [icon]="['fas', 'money-bill-alt']" size="1x"
+                  [styles]="{'color': 'green'}"></fa-icon>
+                <fa-icon *ngIf="busquedaSeleccionada[1]" [icon]="['fas', 'credit-card']" size="1x"
+                  [styles]="{'color': 'orange'}"></fa-icon>
+
+              </span>
+              <select class="custom-select form-text" (change)="cambiarBusquedaSeleccionadaFormaPago($event.target.value)"
+                id="inputGroupSelect01">
+                <option value="contado" selected>Contado</option>
+                <option value="credito">Crédito</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Garantía -->
+      <div class="row">
+        <div class="col-2 text-right">
+          <label> <strong> Duración de Garantía &nbsp;</strong></label>
+        </div>
+        <div class="col-5">
+          <div class="form-group">
+            <div class="input-group mb-3">
+              &nbsp;
+              <span class="form-text input-group-text">
+                <fa-icon [icon]="['fas', 'car-crash']" size="1x" [styles]="{'color': 'black'}"></fa-icon>
+              </span>
+              <select class="custom-select form-text" id="inputGroupSelect01" (change)="cambiarBusquedaSeleccionadaDuracionGarantia($event.target.value)">                
+                <option value="3" selected>3 (Tres) Meses en Servicio Realizado</option>
+                <option value="6">6 (Seis) Meses en Servicio Realizado</option>
+                <option value="9">9 (Nueve) Meses en Servicio Realizado</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <!-- Botón Guardar y Limpiar -->
+      <div class="form-group row">
+        <div class="col-4"></div>
+        <div class="col-4">
+          <!-- <button type="submit" class="btn btn-success btn-lg btn-block">
+                      <i class="fas fa-save"></i> Guardar 
+                  </button> -->
+        </div>
+        <div class="col-2">
+          <button (click)="test()" class="btn btn-success btn-lg btn-block">
+            <fa-icon [icon]="['fas', 'save']" size="1x"></fa-icon> Guardar
+          </button>
+        </div>
+        <div class="col-2">
+          <button type="reset" class="btn btn-secondary btn-lg btn-block">
+            <fa-icon [icon]="['fas', 'brush']" size="1x"></fa-icon> Limpiar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
