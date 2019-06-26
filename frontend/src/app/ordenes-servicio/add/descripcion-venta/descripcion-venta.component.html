@@ -264,7 +264,7 @@
                   </button> -->
         </div>
         <div class="col-2">
-          <button (click)="test()" class="btn btn-success btn-lg btn-block">
+          <button [disabled] = "ordenFinalizada" (click)="finalizarOrden()" class="btn btn-success btn-lg btn-block">
             <fa-icon [icon]="['fas', 'save']" size="1x"></fa-icon> Guardar
           </button>
         </div>

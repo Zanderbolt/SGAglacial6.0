@@ -9,12 +9,15 @@ import { Vehiculo } from 'src/app/models/vehiculo';
 import { OrdenServicioService } from 'src/app/services/orden-servicio.service';
 import { OrdenServicio } from 'src/app/models/orden-servicio';
 
+import { ToastrService } from 'ngx-toastr'
+
 @Component({
   selector: 'app-addOrdenServicio',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.css', '../ordenes-servicio.component.css']
 })
 export class AddComponentOrdenServicio implements OnInit {
+  Vdisabled : boolean = true
   catalogoClientes: string[] = []
   myControl = new FormControl();
   filteredClientes: Observable<string[]>;
@@ -39,7 +42,8 @@ export class AddComponentOrdenServicio implements OnInit {
 
   constructor(public clienteService: ClienteService,
               public vehiculoService: VehiculoService,
-              public ordenServicioService: OrdenServicioService) { }
+              public ordenServicioService: OrdenServicioService,
+              public toastr: ToastrService) { }
 
   ngOnInit() {
 
@@ -62,14 +66,18 @@ export class AddComponentOrdenServicio implements OnInit {
     return this.catalogoClientes.filter(cliente => cliente.toLowerCase().includes(filterValue));
   }
 
-  public limpiarCliente() {
+  public limpiarCliente(form: NgForm) {
+    form.reset();
+    form.form.enable();
     this.clienteService.selectedCliente = new Cliente;
   }
 
-  public buscarCliente() {
+  public buscarCliente(form: NgForm) {
     this.clienteService.getClienteByNombre(this.myControl.value)
       .subscribe(res => {
-        this.clienteService.selectedCliente = res[0] as Cliente;        
+        this.clienteService.selectedCliente = res[0] as Cliente;
+        form.form.disable();
+        this.toastr.info("Cliente Encontrado!");
       });
   }
 
@@ -78,6 +86,18 @@ export class AddComponentOrdenServicio implements OnInit {
     .subscribe(res => {
       this.vehiculoService.selectedVehiculo = res as Vehiculo;           
     })
+    form.form.disable();
+    this.toastr.info("Vehículo Guardado!");
+  }
+
+  public limpiarVehiculo(form: NgForm) {
+    form.reset();
+    form.form.enable();
+    this.vehiculoService.selectedVehiculo = new Vehiculo;
+  }
+
+  public disableVehiculo(form: NgForm) {
+    form.form.disable();
   }
 
   // public test() {

@@ -8,6 +8,10 @@ import { DetallesServicio } from '../../../models/detalles-servicio'
 import { Cliente } from '../../../models/cliente'
 import { Vehiculo } from '../../../models/vehiculo'
 
+import {ToastrService} from 'ngx-toastr'
+import { Router } from '@angular/router';
+
+
 @Component({
   selector: 'app-descripcion-venta',
   templateUrl: './descripcion-venta.component.html',
@@ -15,7 +19,7 @@ import { Vehiculo } from '../../../models/vehiculo'
 })
 export class DescripcionVentaComponent implements OnInit {
   busquedaSeleccionada: boolean[] = [true, false] //Contado, Crédito,
-
+  ordenFinalizada = false;
   serviciosAgregados: DetallesServicio = {
     cantidad: 0,
     descripcion: '',
@@ -48,7 +52,9 @@ export class DescripcionVentaComponent implements OnInit {
   constructor(
     public clienteService: ClienteService,
     public vehiculoService: VehiculoService,
-    public ordenServicioService: OrdenServicioService) { }
+    public ordenServicioService: OrdenServicioService,
+    public toastr: ToastrService,
+    public router: Router) { }
 
 
 
@@ -127,11 +133,14 @@ export class DescripcionVentaComponent implements OnInit {
     this.orden_servicio.total = this.orden_servicio.subtotal + this.orden_servicio.IVA - this.orden_servicio.descuento
   }
 
-  test() {
+  finalizarOrden() {
     this.orden_servicio.cliente = this.clienteService.selectedCliente
     this.orden_servicio.vehiculo = this.vehiculoService.selectedVehiculo
     this.ordenServicioService.guardarOrdenServicio(this.orden_servicio)
     .subscribe(res => console.log(res));
+    this.toastr.success("Orden Generada con Éxito.")
+    this.router.navigate(['/ordenes-servicio'])
+    this.ordenFinalizada = true;
   }
 
 }

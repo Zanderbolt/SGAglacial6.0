@@ -30,7 +30,7 @@ export class AddComponent implements OnInit {
   };
 
   ngOnInit() {
-    this.toastr.success("hola")
+    
   }
 
   addCliente(form: NgForm) {
@@ -39,8 +39,7 @@ export class AddComponent implements OnInit {
       console.log(res)
       this.resetForm(form);
     })
-    
-
+    this.toastr.success("Cliente Agregado Exitosamente!")
   }
 
   resetForm(form?: NgForm) {
