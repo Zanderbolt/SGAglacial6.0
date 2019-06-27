@@ -19,6 +19,7 @@ const Ordenes_servicioSchema = new Schema({
     descuento: {type: Number},
     IVA: {type: Number},
     total: {type: Number},
+    fecha: {type: Date}
     // vehiculo: {type: Vehiculos, required: true },
 })
 
