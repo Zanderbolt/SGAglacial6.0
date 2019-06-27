@@ -34,7 +34,8 @@ import { AddComponentOrdenServicio } from './ordenes-servicio/add/add.component'
 import { SearchOrdenServicioComponent } from './ordenes-servicio/search/search.component';
 import { DescripcionVentaComponent } from './ordenes-servicio/add/descripcion-venta/descripcion-venta.component';
 import { PrintLayoutComponent } from './components/print-layout/print-layout.component';
-import { InvoiceComponent } from './components/invoice/invoice.component'
+import { InvoiceComponent } from './components/invoice/invoice.component';
+import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component'
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { InvoiceComponent } from './components/invoice/invoice.component'
     SearchOrdenServicioComponent,
     DescripcionVentaComponent,
     PrintLayoutComponent,
-    InvoiceComponent
+    InvoiceComponent,
+    IniciarSesionComponent
   ],
   imports: [
     BrowserModule,

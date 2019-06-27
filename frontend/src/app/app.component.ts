@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { PrintService } from './services/print.service';
+import { SucursalService } from './services/sucursal.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-root',
@@ -10,7 +13,9 @@ export class AppComponent {
   show:boolean = false;
   title = 'SGAglacial';
 
-  constructor(public printService: PrintService) { }
+  constructor(public printService: PrintService,
+    public sucursalService: SucursalService,
+    public toastr: ToastrService) { }
 
   onPrintInvoice() {
     const invoiceIds = ['101', '102'];
@@ -26,6 +31,11 @@ export class AppComponent {
       this.show = false
     else if (!this.show)
       this.show = true;
+  }
+
+  cerrarSesion() {
+    this.sucursalService.cerrarSesion();
+    this.toastr.info("Sesión Cerrada Exitosamente");
   }
 
   

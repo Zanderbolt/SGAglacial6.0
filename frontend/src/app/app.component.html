@@ -34,7 +34,7 @@
         <!-- List of Items -->
         <ul class="text-center">
           <!-- Item 1 -->
-          <a routerLink="/clientes">
+          <a routerLink="/clientes" *ngIf="this.sucursalService.usuarioRegistrado">
             <li id="clientes" class="clientes">
               <fa-icon [icon]="['fas', 'users']" size="1x"></fa-icon>
               <br>
@@ -43,7 +43,7 @@
           </a>
           <!-- Fin Item 1 -->
           <!-- Item 2 -->
-          <a routerLink="/ordenes-servicio">
+          <a routerLink="/ordenes-servicio" *ngIf="this.sucursalService.usuarioRegistrado">
             <li class="ordenes-servicio">
               <fa-icon [icon]="['fas', 'clipboard-list']" size="1x"></fa-icon>
               <br>
@@ -51,6 +51,24 @@
             </li>
           </a>
           <!-- Fin item 2 -->
+          <!-- Item 3 -->
+          <a routerLink="/iniciar-sesion" *ngIf="!this.sucursalService.usuarioRegistrado">
+            <li class="iniciar-sesion">
+              <fa-icon [icon]="['fas', 'sign-in-alt']" size="1x"></fa-icon>
+              <br>
+              Iniciar Sesión
+            </li>
+          </a>
+          <!-- Fin item 3 -->
+          <!-- Item 4 -->
+          <a routerLink="" (click)="cerrarSesion()" *ngIf="this.sucursalService.usuarioRegistrado">
+            <li class="cerrar-sesion">
+              <fa-icon [icon]="['fas', 'sign-in-alt']" size="1x"></fa-icon>
+              <br>
+              Cerrar Sesión
+            </li>
+          </a>
+          <!-- Fin item 4 -->
         </ul>
         <!-- End of List -->
       </div>

@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <div class="card text-success bg-light mb-3" style="max-width: 50rem;">
+      <div class="card-header">
+        <h1 class="text-center title-text"> Iniciar Sesión </h1>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-10">
+            <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+              <div class="form-row align-items-center">
+
+                <!-- Input Codigo de Usuario -->
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <fa-icon [icon]="['fas', 'user']" size="1x"></fa-icon>
+                    </span>
+                  </div>
+                  <input type="text" 
+                  name="codigo_usuario"
+                  [(ngModel)]="codigo_usuario"
+                  class="form-control" 
+                  placeholder="Código de usuario">
+                </div>
+                <!-- Fin Input Username -->
+                <br>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                  </div>
+                </div>
+                <!-- Input Codigo Sucursal -->
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <fa-icon [icon]="['fas', 'hotel']" size="1x"></fa-icon>
+                    </span>
+                  </div>
+                  <input 
+                  type="text"
+                  name="codigo_sucursal"
+                  [(ngModel)]="codigo_sucursal" 
+                  class="form-control" 
+                  placeholder="Código de Sucursal">
+                </div>
+                <!-- Fin Input Codigo Sucursal -->
+
+                <!-- Input Password -->
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <fa-icon [icon]="['fas', 'lock']" size="1x"></fa-icon>
+                    </span>
+                  </div>
+                  <input 
+                  type="password"
+                  name="password"
+                  [(ngModel)]="password" 
+                  class="form-control" 
+                  placeholder="Contraseña">
+                </div>
+                <!-- Fin Input Password -->
+                <button type="submit" class="btn btn-block btn-success">
+                  <fa-icon [icon]="['fas', 'save']" size="1x"></fa-icon>&nbsp; Iniciar Sesión
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="col-1"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-4"></div>
+</div>

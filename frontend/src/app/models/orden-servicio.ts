@@ -17,5 +17,7 @@ export class OrdenServicio {
     IVA: number;
     total: number;
     fecha: Date;
+    sucursal: string;
+    trabajador: string;
 
 }

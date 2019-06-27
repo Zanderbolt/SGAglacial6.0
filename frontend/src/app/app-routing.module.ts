@@ -5,6 +5,7 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { OrdenesServicioComponent } from './ordenes-servicio/ordenes-servicio.component';
 import { PrintLayoutComponent } from './components/print-layout/print-layout.component';
 import { InvoiceComponent } from './components/invoice/invoice.component';
+import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,8 @@ const routes: Routes = [
     ]
   },
   { path: 'clientes', component: ClientesComponent },
-  { path: 'ordenes-servicio', component: OrdenesServicioComponent }
+  { path: 'ordenes-servicio', component: OrdenesServicioComponent },
+  { path: 'iniciar-sesion', component: IniciarSesionComponent }
 ];
 
 @NgModule({

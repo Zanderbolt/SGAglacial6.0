@@ -34,6 +34,23 @@ a {
     background-color: #494701;
 }
 
+#sidebar ul li.iniciar-sesion {
+    color: #15D35A;
+}
+
+#sidebar ul li.iniciar-sesion:hover {
+    background-color: #04712B;
+}
+
+#sidebar ul li.cerrar-sesion {
+    color: #F8402A;
+}
+
+#sidebar ul li.cerrar-sesion:hover {
+    background-color: #5A120A;
+}
+
+
 
 #sidebar ul{
     margin: 0px;

@@ -19,8 +19,9 @@ const Ordenes_servicioSchema = new Schema({
     descuento: {type: Number},
     IVA: {type: Number},
     total: {type: Number},
-    fecha: {type: Date}
-    // vehiculo: {type: Vehiculos, required: true },
+    fecha: {type: Date},
+    sucursal: {type: String},
+    trabajador: {type: String}    
 })
 
 module.exports = mongoose.model('Ordenes_servicio', Ordenes_servicioSchema);

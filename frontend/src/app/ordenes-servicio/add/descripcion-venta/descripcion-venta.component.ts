@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { OrdenServicioService } from '../../../services/orden-servicio.service'
 import { VehiculoService } from '../../../services/vehiculo.service'
 import { ClienteService } from '../../../services/cliente.service'
+import { SucursalService } from '../../../services/sucursal.service'
 
 import { OrdenServicio } from '../../../models/orden-servicio'
 import { DetallesServicio } from '../../../models/detalles-servicio'
@@ -46,7 +47,9 @@ export class DescripcionVentaComponent implements OnInit {
     descuento: 0,
     IVA: 0,
     total: 0,
-    fecha: new Date()
+    fecha: new Date(),
+    sucursal: this.sucursalService.selectedSucursal,
+    trabajador: this.sucursalService.selectedUsuario
   }
 
   agregados: DetallesServicio[] = []
@@ -56,7 +59,8 @@ export class DescripcionVentaComponent implements OnInit {
     public vehiculoService: VehiculoService,
     public ordenServicioService: OrdenServicioService,
     public toastr: ToastrService,
-    public router: Router) { }
+    public router: Router,
+    public sucursalService: SucursalService) { }
 
 
 
