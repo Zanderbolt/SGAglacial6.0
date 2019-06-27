@@ -34,7 +34,7 @@ export class AddComponentOrdenServicio implements OnInit {
     ano: '',
     kms: '',
     color: '',
-    numero_serie: ''    
+    numero_serie: '',
   };
 
  

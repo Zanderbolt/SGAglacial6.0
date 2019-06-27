@@ -46,6 +46,7 @@ export class DescripcionVentaComponent implements OnInit {
     descuento: 0,
     IVA: 0,
     total: 0,
+    fecha: new Date()
   }
 
   agregados: DetallesServicio[] = []

@@ -16,5 +16,6 @@ export class OrdenServicio {
     descuento: number;
     IVA: number;
     total: number;
+    fecha: Date;
 
 }
